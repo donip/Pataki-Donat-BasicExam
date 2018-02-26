@@ -1,0 +1,24 @@
+/* Adatbázis létrehozása */
+
+CREATE DATABASE got
+CHARACTER SET utf8
+COLLATE utf8_unicode_ci;
+
+
+/* Tábla létrehozása */
+USE got;
+
+CREATE TABLE characters (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL UNIQUE,
+    alias varchar(255),
+    dead varchar(50),
+    portrait varchar(512) NOT NULL,
+    picture varchar(512) NOT NULL,
+    bio text,
+    house varchar(255),
+    organization varchar(255),
+    CONSTRAINT pr_id PRIMARY KEY (id)
+)
+    ENGINE = INNODB;
+    

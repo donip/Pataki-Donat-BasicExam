@@ -23,6 +23,23 @@ function successAjax(xhttp) {
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
     */
     characterLister(userDatas);
+
+    document.getElementById("searchButton").addEventListener("click", function () {
+        var nev = document.getElementById('searchButton').value;
+        searchForCharacter(userDatas, nev);
+    });
+
+    /* var images = document.getElementsByClassName("small-image");
+     console.log(images);
+
+     for (var i = 0; i < images.length; i++) {
+         images[i].addEventListener("click", function () { // as event listeners
+             var data = userDatas;
+             characterDetails(data, i);
+         });
+     }*/
+
+
 }
 
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
@@ -33,24 +50,48 @@ getData('/json/characters.json', successAjax);
 
 
 
-function createDiv(name = "HELLO", imgSource = "/assets/aemon.png") {
+function createDiv(name = "HELLO", imgSource = "/assets/aemon.png", id) {
     var leftMainDiv = document.getElementById('leftMain');
     var newDiv = document.createElement("div");
     var newPara = document.createElement('p');
     var newImg = document.createElement('img');
-    newImg.src = imgSource;
+
+    newImg.src = imgSource; //setting image source
     newImg.setAttribute('class', 'small-image');
 
-    newPara.innerHTML = name;
+
+    newPara.innerHTML = name; //setting character name
     newDiv.setAttribute('class', 'small-div');
-    newDiv.appendChild(newImg);
+
+    newDiv.appendChild(newImg); //adding content to character divs 
     newDiv.appendChild(newPara);
 
-    leftMainDiv.appendChild(newDiv);
+    leftMainDiv.appendChild(newDiv); //displaying divs on screen
 }
 
 function characterLister(data) {
-    for (i = 0; i < data.length; i++) {
-        createDiv(data[i].name, data[i].portrait);
+    for (var i = 0; i < data.length; i++) {
+        createDiv(data[i].name, data[i].portrait, data[i].id);
+    }
+}
+
+
+
+function characterDetails(data, id) {
+
+    console.log(data[id].picture);
+    var newImg = document.createElement('img');
+    newImg.src = data[id].picture;
+    var location = document.getElementById('pictureDisplay');
+    location.appendChild(newImg);
+}
+
+function searchForCharacter(data, name) {
+    var formatName = name.toLowerCase();
+    for (var i = 0; i < data.length; i++) {
+        if (formatName == (data[i].name).toLoweCase) {
+            characterDetails(data, i)
+            i = data.legth;
+        }
     }
 }

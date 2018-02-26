@@ -24,4 +24,4 @@ FROM `characters`
 WHERE NOT organization = 'royalguard'
 AND dead = ''
 AND NOT house = 'Lannister'
-AND NOT (bio LIKE '%Lannister%' OR bio LIKE "%King's Landing%");
+AND NOT (bio LIKE '%Lannister%' OR bio LIKE "%King\'s Landing%");

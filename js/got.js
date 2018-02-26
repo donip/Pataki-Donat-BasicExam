@@ -22,10 +22,35 @@ function successAjax(xhttp) {
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
     */
+    characterLister(userDatas);
 }
 
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
-getData('/json/aJsonFileodNeve.json', successAjax);
+getData('/json/characters.json', successAjax);
 
 // Live servert használd mindig!!!!!
 /* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
+
+
+
+function createDiv(name = "HELLO", imgSource = "/assets/aemon.png") {
+    var leftMainDiv = document.getElementById('leftMain');
+    var newDiv = document.createElement("div");
+    var newPara = document.createElement('p');
+    var newImg = document.createElement('img');
+    newImg.src = imgSource;
+    newImg.setAttribute('class', 'small-image');
+
+    newPara.innerHTML = name;
+    newDiv.setAttribute('class', 'small-div');
+    newDiv.appendChild(newImg);
+    newDiv.appendChild(newPara);
+
+    leftMainDiv.appendChild(newDiv);
+}
+
+function characterLister(data) {
+    for (i = 0; i < data.length; i++) {
+        createDiv(data[i].name, data[i].portrait);
+    }
+}

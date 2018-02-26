@@ -47,15 +47,15 @@ h1 {
 
 .small-div {
     display: inline-block;
-    width: 105px;
+    height: 105px;
     text-align: center;
-    height: 105px
+    width: 105px;
 }
 
 .small-image {
-    width: 60px;
     height: 60px;
     top: 0;
+    width: 60px;
 }
 
 .small-div>p {
@@ -63,19 +63,24 @@ h1 {
 }
 
 [type=text] {
-    width: 80%;
-    padding: 5px 0;
     border: none;
+    font-family: inherit;
+    padding: 5px 0;
+    width: 80%;
 }
 
 [type=button] {
-    padding: 5px 10px;
-    margin: 10px;
-    font-family: inherit;
     background-color: rgb(58, 57, 57);
     border: 1px solid white;
-    ;
     color: white;
+    font-family: inherit;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+[type=button]:hover {
+    background: white;
+    color: black;
 }
 
 #pictureDisplay>img {

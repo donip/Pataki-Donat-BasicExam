@@ -8,7 +8,7 @@ function getData(url, callbackFunc) {
     xhttp.open("GET", url, true);
     xhttp.send();
 }
-
+//USE reveal module
 function successAjax(xhttp) {
     // itt a json content, benne a data változóban
     var userDatas = JSON.parse(xhttp.responseText);

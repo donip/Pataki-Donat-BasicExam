@@ -5,7 +5,7 @@ main {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Caudex', serif;
+    font-family: 'Caudex', serif; /* from Google Fonts */
 }
 
 main>div {
@@ -14,58 +14,70 @@ main>div {
     margin: 0;
 }
 
-#leftMain {
-    position: absolute;
-    left: 0px;
-    width: 75%;
+#leftMain { /* bal oldali képernyőrész */
     background-image: url("../assets/site/mapblue.jpg");
-    padding: 25px;
     height: 100%;
+    left: 0px;
+    padding: 20px;
+    position: absolute;
+    width: 75%;
 }
 
 #rightMain {
-    background: rgb(51, 51, 51);
+    background: #404040;
     position: absolute;
     right: 0px;
     width: 25%;
 }
 
 h1 {
-    text-align: center;
     color: white;
+    text-align: center;
 }
 
 #searchArea {
-    width: 95%;
-    height: 6%;
-    position: absolute;
+    border: none;
     bottom: 30px;
+    height: 50px;
     left: 0;
     padding-left: 10px;
-    border: none;
+    position: absolute;
+    width: 95%
 }
 
 .small-div {
     display: inline-block;
-    height: 105px;
+    line-height: 35px;
     text-align: center;
-    width: 105px;
+    width: 137px
+    
 }
 
 .small-image {
-    height: 60px;
-    top: 0;
-    width: 60px;
+    height: 80px;
+    width: 80px
+}
+
+.small-div:hover .small-image { /*div felett az egér, benne lévő kép tulajdonságát fogja változtatni*/
+    border-radius: 50%;
+    box-shadow: 0 0 20px 15px snow
+}
+
+.small-div:hover p { /*div felett az egér, benne lévő p tulajdonságát fogja változtatni*/
+    font-weight: bold;
+    text-shadow: 1px 1px 5px snow;
 }
 
 .small-div>p {
-    margin: 0;
+    font-size: 14px;
+    margin: -15px 0 7px 0;
 }
 
 [type=text] {
     border: none;
     font-family: inherit;
-    padding: 5px 0;
+    font-size: 18px;
+    padding: 5px;
     width: 80%;
 }
 
@@ -74,13 +86,14 @@ h1 {
     border: 1px solid white;
     color: white;
     font-family: inherit;
-    margin: 10px;
-    padding: 5px 10px;
+    margin: 0 10px;
+    padding: 7px 13px;
 }
 
 [type=button]:hover {
     background: white;
     color: black;
+    font-weight: bold;
 }
 
 #pictureDisplay>img {
